@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Haiqa Khan — ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css?v=6"/>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor"></div>
+
+<!-- LOCK SCREEN -->
+<div id="lockscreen">
+  <div class="ls-aurora ls-aurora1"></div>
+  <div class="ls-aurora ls-aurora2"></div>
+  <div class="ls-content">
+    <div class="ls-time" id="ls-time">00:00</div>
+    <div class="ls-date" id="ls-date">Thursday, May 29</div>
+    <div class="ls-divider"></div>
+    <div class="ls-avatar">HK</div>
+    <div class="ls-name">Haiqa Khan</div>
+    <div class="ls-role">ML / AI Engineer &nbsp;·&nbsp; Karachi, Pakistan</div>
+    <div class="ls-badge">● Open to Work</div>
+    <div class="ls-hint">Click anywhere to unlock</div>
+  </div>
+</div>
+
+<!-- SPLASH: Windows 11 Boot -->
+<div id="splash">
+  <div class="splash-logo">
+    <svg width="56" height="56" viewBox="0 0 88 88">
+      <path d="M0 12.402L35.687 7.8 35.703 42.753 0.016 42.924z" fill="#f35325"/>
+      <path d="M40.002 7.1L88 0v42.32H40.002z" fill="#81bc06"/>
+      <path d="M0 47.061L35.703 46.89 35.716 81.843 0.027 76.582z" fill="#05a6f0"/>
+      <path d="M40.002 46.499H88v42.401L40.002 82.16z" fill="#ffba08"/>
+    </svg>
+  </div>
+  <div class="splash-dots">
+    <div class="sdot"></div><div class="sdot"></div><div class="sdot"></div>
+    <div class="sdot"></div><div class="sdot"></div>
+  </div>
+</div>
+
+<!-- DESKTOP -->
+<div id="desktop" class="hidden">
+
+  <!-- STARFIELD CANVAS -->
+  <canvas id="starfield" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
+
+  <!-- MOUSE-FOLLOW AURORA -->
+  <div class="aurora-mouse" id="aum1"></div>
+  <div class="aurora-mouse" id="aum2"></div>
+
+  <!-- AURORA WALLPAPER LAYERS -->
+  <div class="aurora" id="au1"></div>
+  <div class="aurora" id="au2"></div>
+  <div class="aurora" id="au3"></div>
+  <div class="aurora" id="au4"></div>
+  <div class="aurora" id="au5"></div>
+  <div class="aurora" id="au6"></div>
+
+  <!-- DESKTOP ICONS (left column) -->
+  <div class="desktop-icons" id="desktopIcons">
+    <div class="di" onclick="openWindow('about')" id="di-about">
+      <div class="di-img">👤</div>
+      <div class="di-label">About Me</div>
+    </div>
+    <div class="di" onclick="openWindow('projects')" id="di-projects">
+      <div class="di-img">📁</div>
+      <div class="di-label">Projects</div>
+    </div>
+    <div class="di" onclick="openWindow('skills')" id="di-skills">
+      <div class="di-img">⚡</div>
+      <div class="di-label">Skills</div>
+    </div>
+    <div class="di" onclick="openWindow('contact')" id="di-contact">
+      <div class="di-img">✉️</div>
+      <div class="di-label">Contact</div>
+    </div>
+    <div class="di" onclick="openWindow('resume')" id="di-resume">
+      <div class="di-img">📄</div>
+      <div class="di-label">Resume</div>
+    </div>
+    <div class="di" onclick="openWindow('terminal')" id="di-terminal">
+      <div class="di-img">🖥️</div>
+      <div class="di-label">Terminal</div>
+    </div>
+  </div>
+
+  <!-- ── WINDOWS ────────────────────────────────────── -->
+
+  <div class="window hidden" id="win-about" style="width:520px;top:70px;left:180px">
+    <div class="win-titlebar" id="tb-about">
+      <img class="win-app-icon" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>👤</text></svg>"/>
+      <span class="win-title-text">About Me</span>
+      <div class="win-controls">
+        <button class="wcb wcb-min" onclick="minimizeWindow('about')" title="Minimize"><svg viewBox="0 0 10 1"><rect width="10" height="1" fill="currentColor"/></svg></button>
+        <button class="wcb wcb-max" id="wmx-about" onclick="maximizeWindow('about')" title="Maximize"><svg viewBox="0 0 10 10"><rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor"/></svg></button>
+        <button class="wcb wcb-cls" onclick="closeWindow('about')" title="Close"><svg viewBox="0 0 10 10"><line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.2"/><line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.2"/></svg></button>
+      </div>
+    </div>
+    <div class="win-content" id="wcontent-about"></div>
+  </div>
+
+  <div class="window hidden" id="win-projects" style="width:760px;top:90px;left:220px">
+    <div class="win-titlebar" id="tb-projects">
+      <img class="win-app-icon" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>📁</text></svg>"/>
+      <span class="win-title-text">Projects</span>
+      <div class="win-controls">
+        <button class="wcb wcb-min" onclick="minimizeWindow('projects')" title="Minimize"><svg viewBox="0 0 10 1"><rect width="10" height="1" fill="currentColor"/></svg></button>
+        <button class="wcb wcb-max" id="wmx-projects" onclick="maximizeWindow('projects')" title="Maximize"><svg viewBox="0 0 10 10"><rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor"/></svg></button>
+        <button class="wcb wcb-cls" onclick="closeWindow('projects')" title="Close"><svg viewBox="0 0 10 10"><line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.2"/><line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.2"/></svg></button>
+      </div>
+    </div>
+    <div class="win-content" id="wcontent-projects" style="overflow:hidden;"></div>
+  </div>
+
+  <div class="window hidden" id="win-skills" style="width:580px;top:110px;left:260px">
+    <div class="win-titlebar" id="tb-skills">
+      <img class="win-app-icon" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>⚡</text></svg>"/>
+      <span class="win-title-text">Skills &amp; Stack</span>
+      <div class="win-controls">
+        <button class="wcb wcb-min" onclick="minimizeWindow('skills')" title="Minimize"><svg viewBox="0 0 10 1"><rect width="10" height="1" fill="currentColor"/></svg></button>
+        <button class="wcb wcb-max" id="wmx-skills" onclick="maximizeWindow('skills')" title="Maximize"><svg viewBox="0 0 10 10"><rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor"/></svg></button>
+        <button class="wcb wcb-cls" onclick="closeWindow('skills')" title="Close"><svg viewBox="0 0 10 10"><line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.2"/><line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.2"/></svg></button>
+      </div>
+    </div>
+    <div class="win-content" id="wcontent-skills"></div>
+  </div>
+
+  <div class="window hidden" id="win-contact" style="width:480px;top:130px;left:300px">
+    <div class="win-titlebar" id="tb-contact">
+      <img class="win-app-icon" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>✉️</text></svg>"/>
+      <span class="win-title-text">Contact — Hire Me</span>
+      <div class="win-controls">
+        <button class="wcb wcb-min" onclick="minimizeWindow('contact')" title="Minimize"><svg viewBox="0 0 10 1"><rect width="10" height="1" fill="currentColor"/></svg></button>
+        <button class="wcb wcb-max" id="wmx-contact" onclick="maximizeWindow('contact')" title="Maximize"><svg viewBox="0 0 10 10"><rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor"/></svg></button>
+        <button class="wcb wcb-cls" onclick="closeWindow('contact')" title="Close"><svg viewBox="0 0 10 10"><line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.2"/><line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.2"/></svg></button>
+      </div>
+    </div>
+    <div class="win-content" id="wcontent-contact"></div>
+  </div>
+
+  <div class="window hidden" id="win-resume" style="width:420px;top:150px;left:340px">
+    <div class="win-titlebar" id="tb-resume">
+      <img class="win-app-icon" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>📄</text></svg>"/>
+      <span class="win-title-text">resume.pdf</span>
+      <div class="win-controls">
+        <button class="wcb wcb-min" onclick="minimizeWindow('resume')" title="Minimize"><svg viewBox="0 0 10 1"><rect width="10" height="1" fill="currentColor"/></svg></button>
+        <button class="wcb wcb-max" id="wmx-resume" onclick="maximizeWindow('resume')" title="Maximize"><svg viewBox="0 0 10 10"><rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor"/></svg></button>
+        <button class="wcb wcb-cls" onclick="closeWindow('resume')" title="Close"><svg viewBox="0 0 10 10"><line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.2"/><line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.2"/></svg></button>
+      </div>
+    </div>
+    <div class="win-content" id="wcontent-resume"></div>
+  </div>
+
+  <div class="window hidden" id="win-terminal" style="width:680px;top:170px;left:380px">
+    <div class="win-titlebar" id="tb-terminal">
+      <img class="win-app-icon" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🖥️</text></svg>"/>
+      <span class="win-title-text">Windows Terminal — haiqa@portfolio</span>
+      <div class="win-controls">
+        <button class="wcb wcb-min" onclick="minimizeWindow('terminal')" title="Minimize"><svg viewBox="0 0 10 1"><rect width="10" height="1" fill="currentColor"/></svg></button>
+        <button class="wcb wcb-max" id="wmx-terminal" onclick="maximizeWindow('terminal')" title="Maximize"><svg viewBox="0 0 10 10"><rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor"/></svg></button>
+        <button class="wcb wcb-cls" onclick="closeWindow('terminal')" title="Close"><svg viewBox="0 0 10 10"><line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.2"/><line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.2"/></svg></button>
+      </div>
+    </div>
+    <div class="win-content terminal-body" id="wcontent-terminal">
+      <div class="term-output" id="termOutput"></div>
+      <div class="term-row">
+        <span class="term-ps" id="termPrompt">PS C:\Haiqa&gt;&nbsp;</span>
+        <input id="termInput" class="term-input" autocomplete="off" spellcheck="false" placeholder="type a command..."/>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── START MENU ─────────────────────────────────── -->
+  <div id="startOverlay" class="hidden" onclick="closeStartMenu()"></div>
+  <div id="startMenu" class="hidden">
+    <div class="sm-search-wrap">
+      <svg class="sm-search-icon" viewBox="0 0 16 16" fill="currentColor"><circle cx="6.5" cy="6.5" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <input class="sm-search" placeholder="Search for apps, settings, and documents" id="smSearch"/>
+    </div>
+    <div class="sm-section">
+      <div class="sm-section-title">Pinned</div>
+      <div class="sm-pins">
+        <div class="sm-pin" onclick="openWindow('about');closeStartMenu()"><div class="sm-pin-icon">👤</div><div class="sm-pin-label">About Me</div></div>
+        <div class="sm-pin" onclick="openWindow('projects');closeStartMenu()"><div class="sm-pin-icon">📁</div><div class="sm-pin-label">Projects</div></div>
+        <div class="sm-pin" onclick="openWindow('skills');closeStartMenu()"><div class="sm-pin-icon">⚡</div><div class="sm-pin-label">Skills</div></div>
+        <div class="sm-pin" onclick="openWindow('contact');closeStartMenu()"><div class="sm-pin-icon">✉️</div><div class="sm-pin-label">Contact</div></div>
+        <div class="sm-pin" onclick="openWindow('resume');closeStartMenu()"><div class="sm-pin-icon">📄</div><div class="sm-pin-label">Resume</div></div>
+        <div class="sm-pin" onclick="openWindow('terminal');closeStartMenu()"><div class="sm-pin-icon">🖥️</div><div class="sm-pin-label">Terminal</div></div>
+      </div>
+    </div>
+    <div class="sm-section">
+      <div class="sm-section-title">Recommended</div>
+      <div class="sm-recs">
+        <div class="sm-rec" onclick="openWindow('projects');closeStartMenu()"><span class="sm-rec-icon">📁</span><div><div class="sm-rec-name">resume_parser.py</div><div class="sm-rec-time">Recently opened</div></div></div>
+        <div class="sm-rec" onclick="openWindow('projects');closeStartMenu()"><span class="sm-rec-icon">📁</span><div><div class="sm-rec-name">neural_style.py</div><div class="sm-rec-time">2 months ago</div></div></div>
+        <div class="sm-rec" onclick="openWindow('resume');closeStartMenu()"><span class="sm-rec-icon">📄</span><div><div class="sm-rec-name">Haiqa_Khan_Resume.pdf</div><div class="sm-rec-time">2 days ago</div></div></div>
+        <div class="sm-rec" onclick="openWindow('contact');closeStartMenu()"><span class="sm-rec-icon">✉️</span><div><div class="sm-rec-name">hire_me — Contact Form</div><div class="sm-rec-time">Always open</div></div></div>
+      </div>
+    </div>
+    <div class="sm-footer">
+      <div class="sm-user"><div class="sm-avatar">HK</div><span class="sm-username">Haiqa Khan</span></div>
+      <button class="sm-power" onclick="alert('Shutting down... just kidding 😄')">
+        <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16"><path d="M8 1a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5A.5.5 0 018 1zm4.243 2.757a.5.5 0 01.707.707A6 6 0 118 2a6 6 0 014.243 1.757.5.5 0 01-.707.707A5 5 0 108 3a5 5 0 014.243 1.757z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── NOTIFICATION TOAST ──────────────────────────── -->
+  <div id="notifToast" class="notif-toast hidden">
+    <div class="notif-icon">💼</div>
+    <div class="notif-body">
+      <div class="notif-title">Haiqa Khan — Open to Work</div>
+      <div class="notif-msg">Available for ML / AI engineering roles. Click the desktop icons to explore!</div>
+    </div>
+    <button class="notif-close" onclick="hideToast()">✕</button>
+  </div>
+
+  <!-- ── TASKBAR ─────────────────────────────────────── -->
+  <div id="taskbar">
+    <div class="tb-left">
+      <div class="tb-search" onclick="document.querySelector('.sm-search') && openStartMenu()">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Search</span>
+      </div>
+    </div>
+    <div class="tb-center">
+      <button class="tb-start" id="startBtn" onclick="toggleStartMenu()" title="Start">
+        <svg width="18" height="18" viewBox="0 0 88 88">
+          <path d="M0 12.402L35.687 7.8 35.703 42.753 0.016 42.924z" fill="#f35325"/>
+          <path d="M40.002 7.1L88 0v42.32H40.002z" fill="#81bc06"/>
+          <path d="M0 47.061L35.703 46.89 35.716 81.843 0.027 76.582z" fill="#05a6f0"/>
+          <path d="M40.002 46.499H88v42.401L40.002 82.16z" fill="#ffba08"/>
+        </svg>
+      </button>
+      <div class="tb-divider"></div>
+      <div class="tb-apps" id="tbApps">
+        <div class="tb-app" data-win="about" onclick="toggleWindow('about')" title="About Me"><span class="tb-app-emoji">👤</span><div class="tb-dot hidden"></div></div>
+        <div class="tb-app" data-win="projects" onclick="toggleWindow('projects')" title="Projects"><span class="tb-app-emoji">📁</span><div class="tb-dot hidden"></div></div>
+        <div class="tb-app" data-win="skills" onclick="toggleWindow('skills')" title="Skills"><span class="tb-app-emoji">⚡</span><div class="tb-dot hidden"></div></div>
+        <div class="tb-app" data-win="contact" onclick="toggleWindow('contact')" title="Contact"><span class="tb-app-emoji">✉️</span><div class="tb-dot hidden"></div></div>
+        <div class="tb-app" data-win="resume" onclick="toggleWindow('resume')" title="Resume"><span class="tb-app-emoji">📄</span><div class="tb-dot hidden"></div></div>
+        <div class="tb-app" data-win="terminal" onclick="toggleWindow('terminal')" title="Terminal"><span class="tb-app-emoji">🖥️</span><div class="tb-dot hidden"></div></div>
+      </div>
+    </div>
+    <div class="tb-right">
+      <div class="tb-tray">
+        <svg class="tray-icon" viewBox="0 0 16 16" fill="currentColor" title="WiFi">
+          <path d="M8 13a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm0-3.5a4 4 0 013.12 1.49l-1.1 1.1A2.5 2.5 0 008 11a2.5 2.5 0 00-2.02 1.09l-1.1-1.1A4 4 0 018 9.5zm0-3.5A7 7 0 0113.45 8l-1.1 1.1a5.5 5.5 0 00-8.7 0L2.55 8A7 7 0 018 6z"/>
+        </svg>
+        <svg class="tray-icon" viewBox="0 0 16 16" fill="currentColor" title="Volume">
+          <path d="M9 2v12l-4-3H2V5h3l4-3zm2.83 1.76a5.5 5.5 0 010 8.48l-.83-.83a4.5 4.5 0 000-6.82l.83-.83z"/>
+        </svg>
+      </div>
+      <div class="tb-clock" onclick="showToast()">
+        <div class="tb-time" id="tbTime">12:00 AM</div>
+        <div class="tb-date" id="tbDate">5/29/2026</div>
+      </div>
+      <div class="tb-notif-dot" id="notifDot"></div>
+    </div>
+  </div>
+
+</div><!-- #desktop -->
+
+<script src="data.js?v=10"></script>
+<script src="app.js?v=10"></script>
+</body>
+</html>
