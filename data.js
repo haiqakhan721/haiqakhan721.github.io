@@ -47,39 +47,26 @@ just in notebooks.`,
       file: "resume_parser.py",
       name: "NLP Resume Parser",
       tagline: "Built during my Syslab internship, now live at United Bank Limited",
-      description: "This one started as an internship task and ended up in production, which was wild. It reads resumes and pulls out the important bits (name, skills, experience, education) and structures them neatly for the bank's hiring system. I also had to build in document verification so it could flag sketchy or altered files. Getting it stable enough to actually deploy was the hardest part.",
-      stack: ["Python", "NLP", "spaCy", "TensorFlow", "MLOps", "AWS"],
-      metrics: { accuracy: "High", deployment: "Production", client: "UBL" },
+      description: "This one started as an internship task and ended up in production, which was wild. It reads resumes and pulls out the important bits (name, skills, experience, education) and structures them neatly for the bank's hiring system. Getting it stable enough to actually deploy was the hardest part. Containerised with Docker and deployed as a microservice.",
+      stack: ["Python", "NLP", "spaCy", "TensorFlow", "Docker", "GCP Cloud Run"],
+      metrics: { deployment: "Production", client: "UBL", infra: "Cloud Run" },
       demo: "#",
-      github: "#",
+      github: "https://github.com/haiqakhan721/resume-parser",
       color: "#4ec9b0",
-      outline: ["class ResumeParser", "  extract_entities()", "  verify_document()", "  structure_data()", "  deploy_model()", "DEMO → demo_link()"]
+      outline: ["class ResumeParser", "  extract_entities()", "  structure_data()", "  validate_output()", "  deploy_service()", "REPO → github_link()"]
     },
     {
-      id: "style",
-      file: "neural_style.py",
-      name: "Neural Style Transfer",
-      tagline: "Make any photo look like a painting using deep learning",
-      description: "You give it two images: one for content, one for style, and it blends them together. Think your photo but painted like a Van Gogh. Under the hood it uses VGG19 to understand what's in each image, Gram matrices to capture the texture and feel of the style, then slowly adjusts the output image until it looks right. Genuinely one of the more satisfying projects to test because you can actually see it working.",
-      stack: ["Python", "TensorFlow", "VGG19", "CNN", "NumPy", "Matplotlib"],
-      metrics: { model: "VGG19", technique: "Gram Matrix", method: "Gradient Descent" },
+      id: "docver",
+      file: "document_verification.py",
+      name: "Document Verification",
+      tagline: "Multi-model ML pipeline that authenticates documents and verifies identities for UBL",
+      description: "Part of the same UBL production system as the resume parser. The repo covers five ML tasks running as separate containerised services: document verification to catch fake or altered files, face verification, psychometric scoring, Urdu transcription, and CV parsing. Each model is wrapped in Docker and deployed to Google Cloud Platform Cloud Run so they scale independently. Built this to make the pipeline robust enough that bad inputs get caught before they cause real problems downstream.",
+      stack: ["Python", "Docker", "GCP Cloud Run", "Computer Vision", "NLP", "Pydantic"],
+      metrics: { models: "5 ML tasks", deployment: "GCP Cloud Run", client: "UBL" },
       demo: "#",
-      github: "#",
-      color: "#c586c0",
-      outline: ["class StyleTransfer", "  load_vgg19()", "  gram_matrix()", "  compute_loss()", "  optimize()", "DEMO → demo_link()"]
-    },
-    {
-      id: "ludo",
-      file: "ludo_ai.py",
-      name: "Ludo AI (Minimax)",
-      tagline: "Classic Ludo but the AI opponent actually thinks a few moves ahead",
-      description: "Standard Ludo except the AI doesn't just roll and move randomly. It uses Minimax to look ahead and pick the move that gives it the best shot at winning. Five players makes the game tree surprisingly complex, which was a fun problem to work through. The AI won't always beat you, but it'll definitely make you think.",
-      stack: ["Python", "Minimax", "Decision Trees", "Game Theory", "AI"],
-      metrics: { players: "5", algorithm: "Minimax", strategy: "Decision Tree" },
-      demo: "#",
-      github: "#",
-      color: "#f05133",
-      outline: ["class LudoAI", "  minimax(state)", "  evaluate(board)", "  get_moves()", "  best_move()", "DEMO → demo_link()"]
+      github: "https://github.com/haiqakhan721/document-verification",
+      color: "#26c6da",
+      outline: ["class DocVerifier", "  verify_document()", "  face_verification()", "  psychometric_score()", "  urdu_transcribe()", "REPO → github_link()"]
     },
     {
       id: "rag",
@@ -151,7 +138,7 @@ just in notebooks.`,
     { hash: "a1f3c2d", msg: "feat: deployed resume parser to production (UBL) 🚀", date: "1 week ago",   branch: "main",            color: "#4ec9b0" },
     { hash: "b2e4f5a", msg: "feat: added document verification module with 99%+ accuracy", date: "3 weeks ago",  branch: "main",            color: "#f05133" },
     { hash: "c3d7e6b", msg: "feat: neural style transfer — VGG19 + Gram matrix pipeline", date: "2 months ago",  branch: "feature/style",   color: "#c586c0" },
-    { hash: "d4f0c3e", msg: "feat: minimax AI for 5-player ludo game", date: "3 months ago",  branch: "feature/ludo",    color: "#f05133" },
+    { hash: "d4f0c3e", msg: "feat: document verification pipeline — 5 ML models on GCP Cloud Run", date: "3 months ago",  branch: "feature/docver",  color: "#26c6da" },
     { hash: "e5a1b2c", msg: "feat: MLOps pipeline — model monitoring & tuning", date: "4 months ago",  branch: "feature/mlops",   color: "#4ec9b0" },
     { hash: "f6c5d8a", msg: "chore: started ML internship at Syslab 💼", date: "11 months ago", branch: "main",            color: "#dcdcaa" },
     { hash: "g7e2f3b", msg: "feat: snake game in C++ with linked list body segments", date: "1 year ago",    branch: "feature/snake",   color: "#9cdcfe" },
@@ -166,7 +153,7 @@ just in notebooks.`,
   cat about.txt    — read my bio
   cat skills.json  — view my tech stack
   python projects  — list all projects
-  open [project]   — open a project (parser / style / ludo / rag / asr / coder)
+  open [project]   — open a project (parser / docver / rag / asr / coder / style)
   contact          — get in touch
   github           — open GitHub profile
   clear / cls      — clear terminal`,
@@ -183,13 +170,13 @@ d----   skills/
     "python projects": `Found 7 projects:
 [1] urdu_ustad      — FYP, LoRA fine-tune + RAG, deployed
 [2] resume_parser   — NLP resume parsing, UBL production
-[3] rag_pipeline    — FastAPI + ChromaDB + Groq, deployed
-[4] whisper_urdu    — Fine-tuned Whisper, Urdu ASR
-[5] clinical_coder  — 3-agent A2A medical coding, F1=0.748
-[6] neural_style    — VGG19 style transfer, TensorFlow
-[7] ludo_ai         — Minimax AI, 5-player game
+[3] doc_verifier    — 5 ML models on GCP Cloud Run, UBL
+[4] rag_pipeline    — FastAPI + ChromaDB + Groq, deployed
+[5] whisper_urdu    — Fine-tuned Whisper, Urdu ASR
+[6] clinical_coder  — 3-agent A2A medical coding, F1=0.748
+[7] neural_style    — VGG19 style transfer, TensorFlow
 
-Run: open [urdu | parser | rag | asr | coder | style | ludo]`,
+Run: open [urdu | parser | docver | rag | asr | coder | style]`,
     github: "Opening GitHub... → github.com/haiqakhan721",
     contact: null,
   }

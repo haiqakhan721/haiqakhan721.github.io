@@ -790,10 +790,10 @@ function handleTermCmd(raw) {
   }
   if (cmd.startsWith('open ')) {
     const p = cmd.split(' ')[1];
-    if (['urdu','parser','style','ludo','rag','asr','coder'].includes(p)) {
+    if (['urdu','parser','docver','style','rag','asr','coder'].includes(p)) {
       runFakeProgress(p);
     } else {
-      termPrint(`<span style="color:#f87171">Error: project "${p}" not found. Try: urdu, parser, rag, asr, coder, style, ludo</span>`);
+      termPrint(`<span style="color:#f87171">Error: project "${p}" not found. Try: urdu, parser, docver, rag, asr, coder, style</span>`);
     }
     return;
   }
