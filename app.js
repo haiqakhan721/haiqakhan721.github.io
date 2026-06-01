@@ -578,8 +578,7 @@ function showProject(id, container) {
     <div class="proj-metrics">${metrics}</div>
     <div class="proj-stack">${badges}</div>
     <div class="proj-actions">
-      <button class="proj-btn demo" onclick="if('${proj.demo}'!=='#')window.open('${proj.demo}','_blank');else alert('Live demo coming soon!')">↗ Live Demo</button>
-      <button class="proj-btn github" onclick="if('${proj.github}'!=='#')window.open('${proj.github}','_blank');else alert('Add your GitHub link in data.js!')">🐙 View Source</button>
+      <button class="proj-btn github" onclick="if('${proj.github}'!=='#')window.open('${proj.github}','_blank');else alert('GitHub repo coming soon!')">🐙 View Source</button>
     </div>`;
 }
 
