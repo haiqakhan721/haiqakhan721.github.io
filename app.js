@@ -507,9 +507,9 @@ function renderAbout() {
       <a class="about-link" onclick="openWindow('contact')">💬 Hire Me</a>
     </div>
     <div class="about-stats">
-      <div class="astat"><div class="astat-n">3</div><div class="astat-l">Projects</div></div>
-      <div class="astat"><div class="astat-n">4 yrs</div><div class="astat-l">Python</div></div>
-      <div class="astat"><div class="astat-n">3.8</div><div class="astat-l">GPA</div></div>
+      <div class="astat"><div class="astat-n">${PORTFOLIO.projects.length}</div><div class="astat-l">Projects</div></div>
+      <div class="astat"><div class="astat-n">3 yrs</div><div class="astat-l">Python</div></div>
+      <div class="astat"><div class="astat-n">Production</div><div class="astat-l">ML at UBL</div></div>
       <div class="astat"><div class="astat-n">&lt;24h</div><div class="astat-l">Response</div></div>
     </div>`;
 

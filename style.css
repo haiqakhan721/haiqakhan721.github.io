@@ -226,6 +226,7 @@ button { font-family: var(--font); }
     inset 0 1px 0 rgba(255,255,255,0.06);
   display: flex; flex-direction: column;
   min-width: 320px;
+  max-height: calc(100vh - var(--taskbar-h) - 16px);
   animation: winOpen 0.15s cubic-bezier(0.2,0,0,1);
   transform-origin: center;
 }
