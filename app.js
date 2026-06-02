@@ -648,8 +648,24 @@ function renderContact() {
 }
 
 function sendContact(btn) {
-  btn.textContent = '✓ Sent! Expect a reply within 24 hours.';
+  const name  = document.getElementById('cf-name')?.value.trim();
+  const email = document.getElementById('cf-email')?.value.trim();
+  const msg   = document.getElementById('cf-msg')?.value.trim();
+
+  if (!name || !email || !msg) {
+    btn.textContent = '⚠ Fill in all fields first';
+    setTimeout(() => { btn.textContent = 'Send Message'; btn.disabled = false; }, 2000);
+    btn.disabled = true;
+    return;
+  }
+
+  const subject = encodeURIComponent(`Portfolio message from ${name}`);
+  const body    = encodeURIComponent(`Hi Haiqa,\n\nName: ${name}\nEmail: ${email}\n\n${msg}`);
+  window.open(`mailto:${PORTFOLIO.email}?subject=${subject}&body=${body}`);
+
+  btn.textContent = '✓ Opening your email client...';
   btn.disabled = true;
+  setTimeout(() => { btn.textContent = 'Send Message'; btn.disabled = false; }, 4000);
 }
 
 // ── RESUME ───────────────────────────────────────────────────
