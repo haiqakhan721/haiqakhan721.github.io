@@ -647,25 +647,46 @@ function renderContact() {
   return d;
 }
 
-function sendContact(btn) {
+async function sendContact(btn) {
   const name  = document.getElementById('cf-name')?.value.trim();
   const email = document.getElementById('cf-email')?.value.trim();
   const msg   = document.getElementById('cf-msg')?.value.trim();
 
   if (!name || !email || !msg) {
     btn.textContent = '⚠ Fill in all fields first';
-    setTimeout(() => { btn.textContent = 'Send Message'; btn.disabled = false; }, 2000);
     btn.disabled = true;
+    setTimeout(() => { btn.textContent = 'Send Message'; btn.disabled = false; }, 2000);
     return;
   }
 
-  const subject = encodeURIComponent(`Portfolio message from ${name}`);
-  const body    = encodeURIComponent(`Hi Haiqa,\n\nName: ${name}\nEmail: ${email}\n\n${msg}`);
-  window.open(`mailto:${PORTFOLIO.email}?subject=${subject}&body=${body}`);
-
-  btn.textContent = '✓ Opening your email client...';
+  btn.textContent = 'Sending...';
   btn.disabled = true;
-  setTimeout(() => { btn.textContent = 'Send Message'; btn.disabled = false; }, 4000);
+
+  try {
+    const fd = new FormData();
+    fd.append('name',     name);
+    fd.append('email',    email);
+    fd.append('message',  msg);
+    fd.append('_subject', `Portfolio message from ${name}`);
+    fd.append('_captcha', 'false');
+    fd.append('_template','table');
+
+    const res = await fetch('https://formsubmit.co/ajax/haiqakhan721@gmail.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: fd
+    });
+
+    const data = await res.json();
+    if (data.success === 'true' || data.success === true) {
+      btn.textContent = "✓ Sent! I'll reply within 24h.";
+    } else {
+      throw new Error();
+    }
+  } catch {
+    btn.textContent = 'Failed — try emailing me directly';
+    setTimeout(() => { btn.textContent = 'Send Message'; btn.disabled = false; }, 3000);
+  }
 }
 
 // ── RESUME ───────────────────────────────────────────────────
