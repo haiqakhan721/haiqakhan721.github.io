@@ -661,10 +661,10 @@ button { font-family: var(--font); }
   box-shadow: 0 0 10px rgba(233,30,140,0.85), 0 0 22px rgba(233,30,140,0.4);
   pointer-events: none;
   z-index: 999999;
-  left: -20px; top: -20px;
-  transform: translate(-50%, -50%);
-  transition: width 0.12s ease, height 0.12s ease, opacity 0.2s ease;
-  will-change: left, top;
+  left: -7px; top: -7px;
+  transform: translate(0, 0);
+  transition: opacity 0.2s ease;
+  will-change: transform;
 }
 
 /* ── LOCK SCREEN ──────────────────────────────────────── */

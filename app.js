@@ -68,9 +68,8 @@ function initCursor() {
   const cur = document.getElementById('cursor');
   if (!cur) return;
   document.addEventListener('mousemove', e => {
-    cur.style.left = e.clientX + 'px';
-    cur.style.top  = e.clientY + 'px';
-  });
+    cur.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  }, { passive: true });
   document.addEventListener('mousedown', () => { cur.style.width = '8px'; cur.style.height = '8px'; });
   document.addEventListener('mouseup',   () => { cur.style.width = ''; cur.style.height = ''; });
   document.addEventListener('mouseleave',() => { cur.style.opacity = '0'; });
