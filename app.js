@@ -500,15 +500,15 @@ function renderAbout() {
     </div>
     <div class="about-bio">${p.bio}</div>
     <div class="about-links">
-      <a class="about-link primary" onclick="alert('GitHub: ${p.github}')">🐙 GitHub</a>
-      <a class="about-link primary" onclick="alert('LinkedIn: ${p.linkedin}')">💼 LinkedIn</a>
-      <a class="about-link" onclick="alert('Email: ${p.email}')">✉️ ${p.email}</a>
+      <a class="about-link primary" href="https://${p.github}" target="_blank" rel="noopener">🐙 GitHub</a>
+      <a class="about-link primary" href="https://${p.linkedin}" target="_blank" rel="noopener">💼 LinkedIn</a>
+      <a class="about-link" href="mailto:${p.email}">✉️ ${p.email}</a>
       <a class="about-link" onclick="openWindow('contact')">💬 Hire Me</a>
     </div>
     <div class="about-stats">
       <div class="astat"><div class="astat-n">${PORTFOLIO.projects.length}</div><div class="astat-l">Projects</div></div>
       <div class="astat"><div class="astat-n">3 yrs</div><div class="astat-l">Python</div></div>
-      <div class="astat"><div class="astat-n">Production</div><div class="astat-l">ML at UBL</div></div>
+      <div class="astat"><div class="astat-n">Karachi</div><div class="astat-l">Pakistan</div></div>
       <div class="astat"><div class="astat-n">&lt;24h</div><div class="astat-l">Response</div></div>
     </div>`;
 
@@ -632,7 +632,7 @@ function renderContact() {
     <div class="contact-form">
       <div>
         <div class="cf-label">Your name</div>
-        <input class="cf-input" id="cf-name" placeholder="John Doe"/>
+        <input class="cf-input" id="cf-name" placeholder="Your name"/>
       </div>
       <div>
         <div class="cf-label">Your email</div>
