@@ -660,10 +660,10 @@ function renderResume() {
     <div class="resume-icon">📄</div>
     <div class="resume-name">${PORTFOLIO.name} — Resume</div>
     <div class="resume-sub">${PORTFOLIO.role} · ${PORTFOLIO.location}</div>
-    <button class="resume-dl" onclick="alert('Add your resume PDF link in data.js to enable download!')">
+    <a class="resume-dl" href="Haiqa_Khan_Resume.pdf" download="Haiqa_Khan_Resume.pdf">
       ↓ Download Resume
-    </button>
-    <div class="resume-hint">PDF · Last updated 2024</div>`;
+    </a>
+    <div class="resume-hint">PDF · Updated June 2026</div>`;
   return d;
 }
 
