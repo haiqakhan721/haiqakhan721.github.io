@@ -624,9 +624,9 @@ function renderContact() {
   d.className = 'contact-wrap';
   d.innerHTML = `
     <div class="contact-links">
-      <a class="contact-link" href="mailto:${p.email}">✉️ ${p.email}</a>
-      <a class="contact-link" href="https://${p.github}" target="_blank" rel="noopener">🐙 GitHub</a>
-      <a class="contact-link" href="https://${p.linkedin}" target="_blank" rel="noopener">💼 LinkedIn</a>
+      <a class="contact-link" onclick="window.open('mailto:${p.email}')">✉️ ${p.email}</a>
+      <a class="contact-link" onclick="window.open('https://${p.github}','_blank')">🐙 GitHub</a>
+      <a class="contact-link" onclick="window.open('https://${p.linkedin}','_blank')">💼 LinkedIn</a>
     </div>
     <div class="contact-divider">or send a message</div>
     <iframe name="cf_iframe" style="display:none;"></iframe>
