@@ -624,68 +624,49 @@ function renderContact() {
   d.className = 'contact-wrap';
   d.innerHTML = `
     <div class="contact-links">
-      <a class="contact-link" onclick="alert('${p.email}')">✉️ ${p.email}</a>
-      <a class="contact-link" onclick="alert('${p.github}')">🐙 ${p.github}</a>
-      <a class="contact-link" onclick="alert('${p.linkedin}')">💼 ${p.linkedin}</a>
+      <a class="contact-link" href="mailto:${p.email}">✉️ ${p.email}</a>
+      <a class="contact-link" href="https://${p.github}" target="_blank" rel="noopener">🐙 GitHub</a>
+      <a class="contact-link" href="https://${p.linkedin}" target="_blank" rel="noopener">💼 LinkedIn</a>
     </div>
-    <div class="contact-divider">— or send a message —</div>
-    <div class="contact-form">
+    <div class="contact-divider">or send a message</div>
+    <iframe name="cf_iframe" style="display:none;"></iframe>
+    <form id="cf-form" class="contact-form"
+      action="https://formsubmit.co/${p.email}"
+      method="POST"
+      target="cf_iframe"
+      onsubmit="handleContactSubmit(event)">
+      <input type="hidden" name="_subject"  value="Portfolio message from website">
+      <input type="hidden" name="_captcha"  value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next"     value="https://haiqakhan721.github.io">
       <div>
         <div class="cf-label">Your name</div>
-        <input class="cf-input" id="cf-name" placeholder="Your name"/>
+        <input class="cf-input" name="name" id="cf-name" placeholder="Your name" required/>
       </div>
       <div>
         <div class="cf-label">Your email</div>
-        <input class="cf-input" id="cf-email" placeholder="you@company.com"/>
+        <input class="cf-input" name="email" id="cf-email" type="email" placeholder="you@company.com" required/>
       </div>
       <div>
         <div class="cf-label">Message</div>
-        <textarea class="cf-textarea" id="cf-msg" placeholder="Hey Haiqa, we'd love to have you on our team..."></textarea>
+        <textarea class="cf-textarea" name="message" id="cf-msg" placeholder="Hey Haiqa, I'd love to connect..." required></textarea>
       </div>
-      <button class="cf-send" id="cfSendBtn" onclick="sendContact(this)">Send Message</button>
-    </div>`;
+      <button class="cf-send" type="submit" id="cfSendBtn">Send Message</button>
+    </form>`;
   return d;
 }
 
-async function sendContact(btn) {
-  const name  = document.getElementById('cf-name')?.value.trim();
-  const email = document.getElementById('cf-email')?.value.trim();
-  const msg   = document.getElementById('cf-msg')?.value.trim();
-
-  if (!name || !email || !msg) {
-    btn.textContent = '⚠ Fill in all fields first';
-    btn.disabled = true;
-    setTimeout(() => { btn.textContent = 'Send Message'; btn.disabled = false; }, 2000);
-    return;
-  }
-
+function handleContactSubmit(e) {
+  const btn = document.getElementById('cfSendBtn');
   btn.textContent = 'Sending...';
   btn.disabled = true;
-
-  try {
-    const fd = new FormData();
-    fd.append('name',     name);
-    fd.append('email',    email);
-    fd.append('message',  msg);
-    fd.append('_subject', `Portfolio message from ${name}`);
-    fd.append('_captcha', 'false');
-    fd.append('_template','table');
-
-    const res = await fetch('https://formsubmit.co/ajax/haiqakhan721@gmail.com', {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: fd
-    });
-
-    const data = await res.json();
-    if (data.success === 'true' || data.success === true) {
+  // iframe loads after FormSubmit processes — mark success
+  const iframe = document.querySelector('iframe[name="cf_iframe"]');
+  if (iframe) {
+    iframe.onload = () => {
       btn.textContent = "✓ Sent! I'll reply within 24h.";
-    } else {
-      throw new Error();
-    }
-  } catch {
-    btn.textContent = 'Failed — try emailing me directly';
-    setTimeout(() => { btn.textContent = 'Send Message'; btn.disabled = false; }, 3000);
+      document.getElementById('cf-form')?.reset();
+    };
   }
 }
 
